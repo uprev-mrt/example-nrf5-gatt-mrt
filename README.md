@@ -1,0 +1,1 @@
+# example-nrf5-gatt-standalone
