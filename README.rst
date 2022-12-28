@@ -1,7 +1,7 @@
-example-nrf5-gatt-standalone
+example-nrf5-gatt-mrt
 ============================
 
-This is an example project demonstrating the use the the ``mrt-ble`` tool to create a gatt server on the NRF5 platform. ``Standalone`` refers to the fact that the project does not actually use the ``MrT`` framework. The ``mrt-ble`` utility just pulls the necessary adapter files into the project. 
+This is an example project demonstrating the use the the ``mrt-ble`` tool to create a gatt server on the NRF5 platform. ``mrt`` refers to the fact that the project uses the ``MrT`` framework.
 
 
 .. note: while this can be done in any IDE you prefer, some of notes in the walkthrough assume the project is opened in VS Code.

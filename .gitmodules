@@ -1,0 +1,9 @@
+[submodule "src/MrT/Modules/Platforms/Common"]
+	path = src/MrT/Modules/Platforms/Common
+	url = https://github.com/uprev-mrt/platform-common.git
+[submodule "src/MrT/Modules/Platforms/NRF5"]
+	path = src/MrT/Modules/Platforms/NRF5
+	url = https://github.com/uprev-mrt/Platform-NRF5.git
+[submodule "src/MrT/Modules/Utilities/Interfaces/GattInterface"]
+	path = src/MrT/Modules/Utilities/Interfaces/GattInterface
+	url = https://github.com/uprev-mrt/utility-gatt-interface.git
