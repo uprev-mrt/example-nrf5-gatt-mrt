@@ -161,7 +161,6 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/libraries/crc16 \
   $(SDK_ROOT)/components/nfc/t4t_parser/apdu \
   $(SDK_ROOT)/components/libraries/util \
-  ../config \
   $(SDK_ROOT)/components/libraries/usbd/class/cdc \
   $(SDK_ROOT)/components/libraries/csense \
   $(SDK_ROOT)/components/libraries/balloc \
@@ -314,7 +313,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
-.PHONY: flash flash_softdevice erase
+.PHONY: flash flash_softdevice erase update
 
 # Flash the program
 flash: default
@@ -330,6 +329,11 @@ flash_softdevice:
 
 erase:
 	nrfjprog -f nrf52 --eraseall
+
+update: 
+	@echo Updating Source & ICD from example_profile.yml 
+	mrt-ble -i example_profile.yml -o src/gatt/ -d .
+
 
 SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar

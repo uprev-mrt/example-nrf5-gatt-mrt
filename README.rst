@@ -27,4 +27,19 @@ If building on a linux host (or in the devcontainer with access to host devices)
 
 If you are using a windows machine as host, you can flash using the NRF-Connect programmer app.
 
+Update Profile
+--------------
+
+The gatt profile can be changed by editing the example_profile.yml file, and then using mrt-ble: 
+
+.. code:: bash 
+
+    mrt-ble -i example_profile.yml -o src/gatt/ -d .
+
+For convenience this has been added as a target to the makefile 
+
+.. code:: bash 
+
+    make update
+
 
