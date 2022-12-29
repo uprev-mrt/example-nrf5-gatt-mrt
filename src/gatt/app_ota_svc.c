@@ -21,7 +21,7 @@
 /**
  * @brief Called after GATT Server is intialized
  */
-void ota_svc_post_init_handler(void)
+void ota_svc_post_registration_handler(void)
 {
     //TODO initialize characteristic values 
 }

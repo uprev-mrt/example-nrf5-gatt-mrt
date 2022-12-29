@@ -1,7 +1,7 @@
 /**
  * @file bat_svc.h
  * @brief The Battery Service exposes the state of a battery    within a device.
- * @date 12/28/22
+ * @date 12/29/22
  * 
  */
 
@@ -55,7 +55,7 @@ uint8_t bat_get_level();
 #define bat_level_cache_valid()                                  (bat_svc.mLevel.data.len != 0)
 
 /* Handlers ------------------------------------------------------------------*/
-void bat_svc_post_init_handler();
+void bat_svc_post_registration_handler();
 
 mrt_status_t bat_level_handler(mrt_gatt_evt_t* event);
 

@@ -1,7 +1,7 @@
 /**
  * @file ota_svc.h
  * @brief sercive for performing over the air updates
- * @date 12/28/22
+ * @date 12/29/22
  * 
  */
 
@@ -83,7 +83,7 @@ uint8_t ota_get_status();
 #define ota_status_cache_valid()                                 (ota_svc.mStatus.data.len != 0)
 
 /* Handlers ------------------------------------------------------------------*/
-void ota_svc_post_init_handler();
+void ota_svc_post_registration_handler();
 
 mrt_status_t ota_version_handler(mrt_gatt_evt_t* event);
 mrt_status_t ota_newverion_handler(mrt_gatt_evt_t* event);

@@ -1,7 +1,7 @@
 /**
  * @file spr_svc.h
  * @brief Custom service for a sprinkler system
- * @date 12/28/22
+ * @date 12/29/22
  * 
  */
 
@@ -90,7 +90,7 @@ uint8_t spr_get_soiltype();
 #define spr_soiltype_cache_valid()                               (spr_svc.mSoiltype.data.len != 0)
 
 /* Handlers ------------------------------------------------------------------*/
-void spr_svc_post_init_handler();
+void spr_svc_post_registration_handler();
 
 mrt_status_t spr_thresh_handler(mrt_gatt_evt_t* event);
 mrt_status_t spr_temperature_handler(mrt_gatt_evt_t* event);

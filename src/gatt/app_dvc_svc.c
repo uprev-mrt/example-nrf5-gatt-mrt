@@ -21,7 +21,7 @@
 /**
  * @brief Called after GATT Server is intialized
  */
-void dvc_svc_post_init_handler(void)
+void dvc_svc_post_registration_handler(void)
 {
     dvc_set_manufacturer_name("Up-Rev");
     //TODO initialize characteristic values 

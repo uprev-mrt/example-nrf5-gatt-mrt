@@ -1,7 +1,7 @@
 /**
  * @file dvc_svc.h
  * @brief The Device Information Service exposes manufacturer    and/or vendor information about a device.
- * @date 12/28/22
+ * @date 12/29/22
  * 
  */
 
@@ -66,7 +66,7 @@ char* dvc_get_firmware_revision();
 #define dvc_firmware_revision_cache_valid()                      (dvc_svc.mFirmwareRevision.data.len != 0)
 
 /* Handlers ------------------------------------------------------------------*/
-void dvc_svc_post_init_handler();
+void dvc_svc_post_registration_handler();
 
 mrt_status_t dvc_manufacturer_name_handler(mrt_gatt_evt_t* event);
 mrt_status_t dvc_serial_number_handler(mrt_gatt_evt_t* event);
