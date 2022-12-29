@@ -5,9 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug From Devcontainer",
             "type": "gdb",
             "request": "attach",
-            "name": "Attach to gdbserver",
+            "executable": "${workspaceRoot}/_build/nrf52832_xxaa.out",
+            "target": "host.docker.internal:2331",
+            "remote": true,
+            "cwd": "${workspaceRoot}", 
+            "gdbpath": "/usr/share/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gdb"
+        },
+        {
+            "name": "host Debug",
+            "type": "gdb",
+            "request": "attach",
             "executable": "${workspaceRoot}/_build/nrf52832_xxaa.out",
             "target": "host.docker.internal:2331",
             "remote": true,

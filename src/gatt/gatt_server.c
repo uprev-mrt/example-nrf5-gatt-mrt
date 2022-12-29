@@ -116,13 +116,14 @@ static void advertising_init(mrt_gatt_svc_t** svcs, uint16_t svc_count, const ch
 
 
     memset(&srdata, 0, sizeof(srdata));
-    srdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
+    //srdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
+    srdata.uuids_complete.uuid_cnt = 1;
     srdata.uuids_complete.p_uuids  = adv_uuids;
 
     err_code = ble_advdata_encode(&advdata, m_adv_data.adv_data.p_data, &m_adv_data.adv_data.len);
     APP_ERROR_CHECK(err_code);
 
-    err_code = ble_advdata_encode(&srdata, m_adv_data.scan_rsp_data.p_data, &m_adv_data.scan_rsp_data.len);
+     err_code = ble_advdata_encode(&srdata, m_adv_data.scan_rsp_data.p_data, &m_adv_data.scan_rsp_data.len);
     APP_ERROR_CHECK(err_code);
 
     ble_gap_adv_params_t adv_params;
@@ -231,6 +232,7 @@ static void advertising_start(void)
 static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 {
     ret_code_t err_code;
+    static mrt_gatt_evt_t mrt_evt;
 
     switch (p_ble_evt->header.evt_id)
     {
@@ -293,6 +295,13 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
                                              BLE_HCI_REMOTE_USER_TERMINATED_CONNECTION);
             APP_ERROR_CHECK(err_code);
             break;
+        
+        case BLE_GATTS_EVT_WRITE:
+
+            nrf5_convert_gatt_evt(p_ble_evt, &mrt_evt, &example_profile.mPro);
+            example_profile_handle_evt(&mrt_evt);
+
+            break; 
 
         default:
             // No implementation needed.

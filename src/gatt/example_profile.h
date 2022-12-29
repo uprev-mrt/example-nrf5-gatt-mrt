@@ -37,10 +37,22 @@ extern example_profile_t example_profile;
 /**
  * @brief initialize profile
  * @param ctx ptr to context (defined by platform)
+ * @returns status
  */
 mrt_status_t example_profile_init(void* ctx);
 
+/**
+ * @brief Registers services in profile
+ * @returns status
+ */
 mrt_status_t example_profile_register(void);
+
+/**
+ * @brief Handles events for profile and dispatches to appropriate service/characteristic handler
+ * @param evt ptr to event struct 
+ * @returns status
+*/
+mrt_status_t example_profile_handle_evt(mrt_gatt_evt_t* evt);
 
 /*user-block-functions-start*/
 /*user-block-functions-end*/
